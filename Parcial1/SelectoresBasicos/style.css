@@ -29,10 +29,9 @@ body{
     margin: auto;
 }
 
-.neko{
-    display: block;
-    margin: auto;
-    width: 50%;
+#neko{
+    width: 100%;
+    margin: 0;
 }
 
 section{
