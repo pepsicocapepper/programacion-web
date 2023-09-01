@@ -1,5 +1,5 @@
 html{
-    background-image: url('background.gif');
+    background-image: url('sky.gif');
 }
 
 .title{
@@ -14,13 +14,13 @@ h1{
 }
 
 img{
-    height: 50%;
+    height: 100%;
     width: auto;
     margin: 0 50px;
 }
 
 body{
-    font-family:cursive;
+    font-family: cursive;
     font-size:xx-large;
 }
 
@@ -29,19 +29,27 @@ body{
     margin: auto;
 }
 
-p{
+.neko{
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+section{
     background-color: beige;
-    border-style:ridge;
-    padding: 5px 15px;
+    border-style: ridge;
+    padding: 0px  20px;
     border-width: 10px;
     text-indent: 30px;
+    margin-top: 0;
+    margin-bottom: 32px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    text-align: justify;
 }
 
 .important{
     background: linear-gradient(0deg, rgb(255, 141, 141) 0%, rgb(224, 103, 58) 100%);
 }
 
-.important::before{
-    content: "⚠";
-    color: yellow;
-}
