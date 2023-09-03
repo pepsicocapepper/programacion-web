@@ -7,7 +7,8 @@ Existen dos tipos de cajas:
 
 Por ejemplo, dos párrafos serían elementos block, ya que no pueden haber dos párrafos seguidos; sino uno arriba del otro. En cambio, un enlace es un elemento inline, ya que no "corta" el texto donde está metido.  
 Las propiedades más importantes de una caja son: **width**, **height**, **padding**, **border** y **margin**.
-![Texto](modelo_de_caja.png)
+
+![Modelo de caja](modelo_de_caja.png)
 ## Ancho y alto
 El atributo **width** representa el ancho de la caja, pero refiriéndose al ancho interior de la caja, se puede referir a esta mediante medidas absolutas o relativas.  
 Aunque los elementos inline tienen width, al modificarse con CSS no se verá ningún cambio visual. Esto es porque el ancho de estos elementos se establece automáticamente para que se ajuste a las dimensiones del elemento inline.  
