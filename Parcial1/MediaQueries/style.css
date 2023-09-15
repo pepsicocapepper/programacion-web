@@ -12,3 +12,12 @@
 #test:hover{
     transform: translateY(50px);
 }
+
+
+@media (max-width: 600px){
+    .caja{
+        float:none;
+        flex-direction: column;
+        width: 100%;
+    }
+}
