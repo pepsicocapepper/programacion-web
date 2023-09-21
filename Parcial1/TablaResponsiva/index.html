@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        table, thead, tbody, tr, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        tr:nth-child(even){
+            background-color: aqua;
+        }
+
+        @media screen and (max-width: 600px){
+            table, thead, tbody, tr, th, td{
+                display: block;
+            }
+
+            thead{
+                display: none;
+            }
+
+            td{
+                padding-left: 50%;
+            }
+
+            
+            td:nth-child(1)::before{
+                content: "Num control";
+                position: absolute;
+                left: 10px;
+            }
+            
+            td:nth-child(2)::before{
+                content: "Nombre";
+                position: absolute;
+                left: 10px;
+            }
+
+            td:nth-child(3)::before{
+                content: "Materia";
+                position: absolute;
+                left: 10px;
+            }
+
+            td:nth-child(4)::before{
+                content: "Calificacion";
+                position: absolute;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>Num. Control</th>
+            <th>Nombre<br></th>
+            <th>Materia</th>
+            <th>Calificación<br></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21100197</td>
+            <td>Eric</td>
+            <td>Matemáticas</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>21100198</td>
+            <td>Roberto<br></td>
+            <td>Química</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>21100199</td>
+            <td>Daniel</td>
+            <td>Física</td>
+            <td>9</td>
+          </tr>
+        </tbody>
+        </table>
+</body>
+</html>
