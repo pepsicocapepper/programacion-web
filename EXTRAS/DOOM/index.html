@@ -7,6 +7,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="../html2canvas.min.js"></script>
     <script type="text/javascript">
+        var meltCan = document.createElement("canvas");
+        meltCtx = meltCan.getContext("2d");
+        images = [image1, image2];
+        bgImage = 1;
+        meltImage = 0;
+
+        settings = {
+            colSize: 2,
+            maxDev: 100,
+            maxDiff: 50,
+            fallSpeed: 6
+        }
+
+        function init()
+
+
         $(document).ready(function() {
             $(document).on("click", function(){
                 html2canvas($('.content')[0]).then((canvas) => {
