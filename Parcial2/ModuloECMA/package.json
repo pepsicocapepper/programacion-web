@@ -1,8 +1,8 @@
 {
-  "name": "modulocommon",
+  "name": "moduloecma",
   "version": "1.0.0",
   "description": "",
-  "main": "computer_utilities.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

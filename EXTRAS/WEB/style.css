@@ -1,0 +1,41 @@
+body{
+    width: 960px;
+    margin: 8px auto;
+    background-color: blueviolet;
+    color: white;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section{
+    height: 100%;
+    background-color: green;
+}
+
+main{
+    float: left;
+    background-color: lightblue;
+    width: calc(100% - 160px);
+}
+
+article{
+    margin: 8px 8px;
+    padding: 10px 20px;
+    background-color: blue;
+}
+
+article p{
+    margin: 0;
+    text-align: justify;
+}
+
+nav{
+    float: left;
+    width: 160px;
+    height: 100%;
+    background-color: lightblue;
+}
