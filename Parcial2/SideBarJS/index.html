@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Layout Side Bar</h1>
+    </header>
+    <section id="sidebar" class="sidebar">
+        <p>Lateral</p>
+        <p>bla</p>
+        <p>bla</p>
+        <p>bla</p>
+        <p>bla</p>
+        <p>bla</p>
+        <p>bla</p>
+    </section>
+    <section id="content" class="content">
+        <button id="btn" type="button">Toggle</button>
+    </section>
+    <script>
+        let btnToggle = document.getElementById("btn").addEventListener("click", function(){
+            document.getElementById("sidebar").classList.toggle("sidebarEscondido");
+            document.getElementById("content").classList.toggle("contenidoFull");
+        })
+    </script>
+</body>
+</html>

@@ -1,41 +1,106 @@
 body{
     width: 960px;
-    margin: 8px auto;
-    background-color: blueviolet;
+    margin: 0 auto;
+    background-color: #8a2be2;
     color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: xx-large;
+    margin: 16px 0;
+    text-shadow: #000 2px 2px;
 }
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-image: url(content/flcl.gif);
+    border: solid 2px #fff;
 }
 
 section{
+    display: flex;
     height: 100%;
     background-color: green;
 }
 
 main{
     float: left;
-    background-color: lightblue;
+    background-color: #E3A442;
     width: calc(100% - 160px);
 }
 
 article{
-    margin: 8px 8px;
+    margin: 16px 24px;
     padding: 10px 20px;
-    background-color: blue;
+    border-radius: 19px 19px 19px 19px;
+    -webkit-border-radius: 19px 19px 19px 19px;
+    -moz-border-radius: 19px 19px 19px 19px;
+    border: 1px solid #111;
+    background-color: #13c050;
 }
 
+/*
+article{
+    margin: 16px 24px;
+    padding: 10px 20px;
+    border-radius: 19px 19px 19px 19px;
+    -webkit-border-radius: 19px 19px 19px 19px;
+    -moz-border-radius: 19px 19px 19px 19px;
+    border: 8px dashed #fff;
+    background-color: blue;
+}
+*/
+
 article p{
-    margin: 0;
+    
     text-align: justify;
 }
 
 nav{
     float: left;
     width: 160px;
-    height: 100%;
-    background-color: lightblue;
+    background-color: #ac803a;
+}
+
+.random_capsule{
+    border: solid 1px black;
+    margin: 5px 0;
+}
+
+.random_capsule p{
+    margin: 0;
+    border-bottom: 1px solid black;
+    background-color: gray;
+    text-align: center;
+}
+
+#nav_programming{
+    background-image: url(content/haruko.png);
+
+}
+
+.nav_icon{
+    margin: 8px auto;
+    border: 1px solid black;
+    display: block;
+    width: 128px;
+    height: 128px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav_icon:hover{
+    color: red;
+    font-weight: 600;
+    background-position: -128px 0;
+}
+
+
+.penguin{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 64px;
+    margin: 24px 0 16px 0;
 }
