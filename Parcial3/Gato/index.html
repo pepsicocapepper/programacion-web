@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="game">
+        <div id="caja1" class="caja"></div>
+        <div id="caja2" class="caja"></div>
+        <div id="caja3" class="caja"></div>
+        <div id="caja4" class="caja"></div>
+        <div id="caja5" class="caja"></div>
+        <div id="caja6" class="caja"></div>
+        <div id="caja7" class="caja"></div>
+        <div id="caja8" class="caja"></div>
+        <div id="caja9" class="caja"></div>
+    </section>
+    <button id="btnLimpiar">Limpiar</button>
+    <script>
+        var xo = "X"
+        document.getElementById("game").addEventListener("click", function(e){
+            if(document.getElementById(e.target.id).className == 'caja'){
+                if(xo == "X"){
+                    document.getElementById(e.target.id).classList.toggle("x")
+                    xo = "O";
+                } else {
+                    document.getElementById(e.target.id).classList.toggle("o");
+                    xo = "X";
+                }
+            }
+        })
+
+        document.getElementById("btnLimpiar").addEventListener("click", function(){
+            let cajas = document.getElementsByClassName("caja");
+            for(const elemento of cajas){
+                elemento.classList.remove("x");
+                elemento.classList.remove("o");
+            }
+        })
+    </script>
+</body>
+</html>
