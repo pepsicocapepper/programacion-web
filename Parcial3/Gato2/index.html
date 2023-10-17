@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 </head>
 <body>
-    <section id="newGame">
-        <p>hola</p>
-    </section>
     <section id="game">
         <div id="0" class="caja"></div>
         <div id="1" class="caja"></div>
@@ -24,10 +23,7 @@
     <button id="btnLimpiar">Limpiar</button>
     <script>
         var gameGrid = new Array(9);
-        var gameEnded = false;
-        for (let i = 0; i < 9; i++)
-            gameGrid[i] = i;
-
+        var gameEnded;
         function verify(index){
             let col = index % 3;
             let row = index - index % 3;
@@ -41,15 +37,22 @@
             }
             return Boolean(result);
         }
+        function startGame(){
+            gameEnded = false;
+            for (let i = 0; i < 9; i++)
+                gameGrid[i] = i;
+            let cajas = document.getElementsByClassName("caja");
+            for(const elemento of cajas){
+                elemento.classList.remove("x");
+                elemento.classList.remove("o");
+            }
+        }
         var xo = "X"
         document.getElementById("game").addEventListener("click", function(e){
             let t = document.getElementById(e.target.id);
             if(t.className == 'caja'){
                 gameGrid[t.id] = xo;
                 gameEnded = verify(t.id);
-                if(gameEnded){
-                    alert("gano " + xo)
-                }
                 if(xo == "X"){
                     t.classList.toggle("x")
                     xo = "O";
@@ -57,15 +60,17 @@
                     t.classList.toggle("o");
                     xo = "X";
                 }
+                if(gameEnded){
+                    Swal.fire({
+                        title: 'Ganan las ' + (xo == 'X' ? 'O' : 'X'),
+                        confirmButtonText: 'Cool'
+                    })
+                    startGame();
+                }
             }
         })
-
         document.getElementById("btnLimpiar").addEventListener("click", function(){
-            let cajas = document.getElementsByClassName("caja");
-            for(const elemento of cajas){
-                elemento.classList.remove("x");
-                elemento.classList.remove("o");
-            }
+            startGame();
         })
     </script>
 </body>
