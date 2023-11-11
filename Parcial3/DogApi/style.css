@@ -1,0 +1,24 @@
+main{
+    width: 60%;
+    padding: 8px 16px;
+    margin: 16px auto;
+    background-color: beige;
+    border: 5px #dddddd groove;
+}
+
+select{
+    display: block;
+}
+
+img{
+    width: 100%;
+}
+
+input{
+    display: block;
+}
+
+body{
+    font-weight: normal;
+    font-style: normal;
+}

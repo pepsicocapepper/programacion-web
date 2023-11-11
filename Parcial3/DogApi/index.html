@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <h1>Dog api</h1>
+        <div>
+            <label for="dog_select_breed">Raza: </label>
+            <select name="dog_select_breed" id="dog_select_breed"></select>
+            <button id="buscar_perro">Busca un perro</button>
+        </div>
+        <img src="" alt="" id="foto_perro">
+    </main>
+    <script>
+        let select = document.getElementById("dog_select_breed");
+        let breed;
+        document.addEventListener("DOMContentLoaded", function(event) {
+            fetch("https://dog.ceo/api/breeds/list/all")
+                .then(objRespuesta => objRespuesta.json())
+                .then(datoJson => {
+                    for (const raza in datoJson.message) {
+                        let option = document.createElement("option");
+                        option.innerText = raza;
+                        select.appendChild(option);
+                    }
+            });
+        });
+
+        document.getElementById("buscar_perro").addEventListener("click", () =>{
+            breed = select.value;
+            fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+                .then(objRespuesta => objRespuesta.json())
+                .then(datoJson => {
+                    document.getElementById("foto_perro").src = datoJson.message;
+            });
+        })
+    </script>
+</body>
+</html>

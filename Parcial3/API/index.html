@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/minecraftia" type="text/css"/> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/minecraft-framework-css@1.1.9/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Minecraft searcher</h1>
+        <input type="text" name="" id="username">
+        <button class="button-java" id="btnXml">Peticion XmlHttpRequest </button>
+        <button class="button-java" id="btnFetch">Peticion Fetch </button>
+        <button class="button-java" id="btnAsync">Peticion Async </button>
+        <button class="button-java" id="btnJQ">Peticion JQ </button>
+        <button class="button-java" id="btnAX">Peticion AX </button>
+        <div>
+            <h2>UUID</h2>
+            <p id="uuid"></p>
+            <h2>Skin</h2>
+            <img src="" alt="" id="img">
+        </div>
+    </main>
+    <script>
+        var username = document.getElementById("username").value;
+        let uuid = document.getElementById("uuid");
+        let skinImg = document.getElementById("img");
+        window.onload = function () {
+            document.getElementById("btnXml").addEventListener("click", () => {
+                username = document.getElementById("username").value;
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener("readystatechange", function () {
+                    if (this.readyState === this.DONE) {
+
+                        let objetoRespuesta = JSON.parse(this.responseText);
+                        uuid.innerText = objetoRespuesta.uuid;
+                        skinImg.src = objetoRespuesta.textures.skin.url;
+                    }
+                });
+                xhr.open("GET", "https://api.ashcon.app/mojang/v2/user/" + username);
+                xhr.send();
+            })
+
+            document.getElementById("btnFetch").addEventListener("click", () => {
+                username = document.getElementById("username").value;
+                fetch("https://api.ashcon.app/mojang/v2/user/" + username)
+                    .then(objRespuesta => objRespuesta.json())
+                    .then(datoJson => {uuid.innerText = datoJson.uuid; skinImg.src = datoJson.textures.skin.url;});
+
+            });
+
+            document.getElementById("btnAsync").addEventListener("click", async () => {
+                username = document.getElementById("username").value;
+                let objRespuesta = await fetch("https://api.ashcon.app/mojang/v2/user/" + username);
+                let datoJson = await objRespuesta.json();
+                uuid.innerText = datoJson.uuid;
+                skinImg.src = datoJson.textures.skin.url;
+            });
+
+            document.getElementById("btnAX").addEventListener("click", async () => {
+                username = document.getElementById("username").value;
+                axios({
+                    method: 'get',
+                    url: 'https://api.ashcon.app/mojang/v2/user/' + username,
+                    responseType: 'json'
+                })
+                    .then(function (datoJson) {
+                        console.log(datoJson);
+                        uuid.innerText = datoJson.data.uuid;
+                        skinImg.src = datoJson.data.textures.skin.url;
+                    });
+            });
+        }
+
+        $(document).ready(function () {
+            document.getElementById("btnJQ").addEventListener("click", () => {
+                username = document.getElementById("username").value;
+                $.getJSON("https://api.ashcon.app/mojang/v2/user/" + username, function (datoJson) {
+                    uuid.innerText = datoJson.uuid;
+                    skinImg.src = datoJson.textures.skin.url;
+                });
+            });
+
+        })
+    </script>
+</body>
+</html>

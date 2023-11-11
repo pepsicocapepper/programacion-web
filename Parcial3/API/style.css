@@ -1,0 +1,23 @@
+img{
+    height: 300px;
+    image-rendering: pixelated;
+}
+
+main{
+    font-family: 'MinecraftiaRegular';
+    background-image: url('buttonbody.png');
+    font-weight: normal;
+    font-style: normal; 
+    width: 60%;
+    padding: 8px 16px;
+    margin: 16px auto;
+    background-color: beige;
+    border: 5px #dddddd groove;
+}
+
+body{
+    background-image: url("dirt");
+    font-family: 'Minecraftia Regular';
+    font-weight: normal;
+    font-style: normal;
+}
