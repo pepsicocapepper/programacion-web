@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <button id="btn_PeticionHttp" type="button">Peticion HTTP</button>
+        <button id="btn_PeticionExpress" type="button">Peticion Express</button>
+        <h3>Mensaje recibido: </h3>
+        <p id="mensaje"></p>
+    </form>
+    <script>
+        let outMensaje = document.getElementById("mensaje");
+        document.getElementById("btn_PeticionHttp").addEventListener("click", async () => {
+            outMensaje.textContent = "";
+            let response = await fetch("http://localhost:8000/clientes", { 
+                method: "GET",
+            });
+
+            let data = JSON.parse(await response.text());
+            outMensaje.textContent = data.mensaje;
+        })
+
+        document.getElementById("btn_PeticionExpress").addEventListener("click", async () => {
+            outMensaje.textContent = "";
+            let response = await fetch("http://localhost:8082/clientes", { 
+                method: "GET",
+            });
+
+            let data = JSON.parse(await response.text());
+            outMensaje.textContent = data.mensaje;
+        })
+    </script>
+</body>
+</html>
