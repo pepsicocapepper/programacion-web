@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de BD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="header">
+        <h3>CONSULTA DE ALUMNOS</h3>
+    </div>
+    <div id="tabla"></div>
+    <div class="select__alumno">
+        <label class="form-label" for="">Ingrese el número de control del que desea consultar:</label>
+        <input class="form-control" type="number" name="inputID" id="inputID">
+        <button class="btn btn-dark" id="btnConsultar">Consultar</button>
+        <button class="btn btn-dark" id="btnEliminar">Eliminar</button>
+    </div>
+    <hr>
+    <div class="results">
+        <div>
+            <h3>Información del alumno</h3>
+        </div>
+        <div>
+            <label class="form-label" for="">Nombre del alumno</label>
+            <input class="form-control" type="text" name="" id="nombre" placeholder="Nombre del alumno">
+        </div>
+        <div>
+            <label class="form-label" for="">Apellido paterno</label>
+            <input class="form-control" type="text" name="" id="apellido_paterno" placeholder="Apellido paterno">
+        </div>
+        <div>
+            <label class="form-label" for="">Apellido materno</label>
+            <input class="form-control" type="text" name="" id="apellido_materno" placeholder="Apellido materno">
+        </div>
+        <div>
+            <label class="form-label" for="">Promedio</label>
+            <input class="form-control" type="number" name="" id="promedio" placeholder="Promedio">
+        </div>
+    </div>
+    <div class="buttonBottom">
+        <button class="btn btn-dark" id="btnAgregar">Agregar</button>
+        <button class="btn btn-dark" id="btnModificar">Modificar</button>
+        <button class="btn btn-dark" id="btnPDFConsulta">Generar PDF de consulta</button>
+    </div>
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
